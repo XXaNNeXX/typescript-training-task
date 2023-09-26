@@ -23,6 +23,12 @@ function showStudentInfos(student: Student): void {
     console.log("Noten: " + newGrades)
 }
 
+function showAllStudents(student: Student[]): void {
+    for(let i: number=0; i<student.length;i++) {
+        showStudentInfos(student[i])
+    }
+}
+
 const me: Student = {
     firstName: "Anne",
     lastName: "Hensel",
@@ -46,4 +52,5 @@ const mario: Student = {
 
 
 showStudentInfos(me)
+showAllStudents([me,tina,mario])
 
