@@ -8,35 +8,42 @@ type Student = {
     grades: Grades[]
 }
 
-function showStudent(student: Student): void {
+function showStudentInfos(student: Student): void {
     console.log(student.firstName + " " + student.lastName + " (" + student.age + ")")
     console.log("=================")
-    console.log("Noten: " + student.grades)
+
+    const newGrades = student.grades.map(grade => {
+        if(grade === undefined) {
+            return "*"
+        } else {
+            return grade
+        }
+    })
+
+    console.log("Noten: " + newGrades)
 }
 
 const me: Student = {
     firstName: "Anne",
     lastName: "Hensel",
     age: 29,
-    grades: ["A", 1, "D", 2, 3]
+    grades: ["A", 1, "D", undefined, 3]
 }
 
 const tina: Student = {
     firstName: "Tina",
     lastName: "Müller",
     age: 35,
-    grades: [2, "F", "B", 3, "A"]
+    grades: [2, "F", undefined, 3, "A"]
 }
 
 const mario: Student = {
     firstName: "Mario",
     lastName: "Kart",
     age: 99,
-    grades: [1, 6, "D", 1, "B"]
+    grades: [1, undefined, "D", 1, "B"]
 }
 
 
-showStudent(me)
-//console.log(student("Anne", "Hensel", "(29)", { math: "A", english: 1, german: "D", biology:"*", art: 3}))
-//console.log(me.firstName + " " + me.lastName + " " + me.age + "\n====================\nNoten: " + me.grades.math + "," + me.grades.english + "," + me.grades.german + "," + me.grades.biology + ","+ me.grades.art)
+showStudentInfos(me)
 
